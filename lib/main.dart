@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+  }
+}
 
 void main() {
+  HttpOverrides.global = MyHttpOverrides();
   runApp(const WhatsAppClone());
 }
 
@@ -73,22 +83,24 @@ class AppBarPrimary extends StatelessWidget {
               )),
           body: ListView(
             children: [
-              Message("Brian", "Olá, tudo bem? Estou testando o overflow neste app",
-                  "https://github.com/brianrecoba.png", "11:23 AM", 3),
-              Message("Brian", "Olá, tudo bem?",
-                  "https://github.com/brianrecoba.png", "11:23 AM", 3),
-              Message("Brian", "Olá, tudo bem?",
-                  "https://github.com/brianrecoba.png", "11:23 AM", 3),Message("Brian", "Olá, tudo bem?",
-                  "https://github.com/brianrecoba.png", "11:23 AM", 3),Message("Brian", "Olá, tudo bem?",
-                  "https://github.com/brianrecoba.png", "11:23 AM", 3),
-              Message("Brian", "Olá, tudo bem?",
-                  "https://github.com/brianrecoba.png", "11:23 AM", 3),
+              Message("Leandrinha ", "Aralhooo",
+                  "https://agoraequesaoelas.blogfolha.uol.com.br/files/2018/09/Captura-de-Tela-2018-09-05-a%CC%80s-4.16.21-PM.png", "11:23 AM", 1),
+              Message("Faustinho", "Oloco, bicho",
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTa-rV0-j8nnx5mZlj3xYWQBKxWP1eW0eRPg&usqp=CAU", "11:23 AM", 1),
+              Message("Travolta", "???",
+                  "https://rollingstone.uol.com.br/media/_versions/pulp_fiction_reproducao_video_1_widelg.png", "11:23 AM", 3),
+              Message("CJzada", "ah shit, here we go again",
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcAmmzx5mfrBI4Xu5K3iezfkvKrV8gGYZ5iQ&usqp=CAU", "11:23 AM", 3),
+              Message("Sherek", "Não convida o burro...",
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI9gaC_kgyGIAeaq4qJ7EH5BpSUDqHXQMm737anB04JMAwAZ6xfXudDfq-1X1ZG5SArN4&usqp=CAU", "11:23 AM", 3),
+              Message("R Marquinhos", "KATCHAAAU",
+                  "https://i1.sndcdn.com/artworks-aLoynizs9v21qy3F-z7Bs0A-t500x500.jpg", "11:23 AM", 2),
               Message(
-                  "Fulano",
-                  "Olá Flutter",
-                  "https://imgs.search.brave.com/CbsOrhsAuZMg4MdTqO-80bBrFAuelNiI4sahY17Vo6E/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtZ3JhdGlz/L2pvdmVtLWxpbmRh/LWFuZGEtcGVsYS1j/aWRhZGUtbmEtZXVy/b3BhLWZvdG8tZGUt/cnVhLW11bGhlci1w/b3NhbmRvLW5vLWNl/bnRyby1kYS1jaWRh/ZGVfMTMyMS00MzUy/LmpwZz9zaXplPTYy/NiZleHQ9anBn",
+                  "Sikera",
+                  "Você vai morrer em...",
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp2NT8jAT_KAZ-IQAcu9US6obsQsOz0AIjIw&usqp=CAU",
                   "01:12 PM",
-                  4),
+                  3),
               Message(
                   "Fulano",
                   "Olá Flutter",
@@ -187,3 +199,4 @@ class Message extends StatelessWidget {
     );
   }
 }
+
